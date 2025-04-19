@@ -6,36 +6,5 @@ bot = Bot(token='7692626473:AAEgJxf5PS_RG0_geBIqP3V8UU1uKlzmwl8', parse_mode=typ
 storage = MemoryStorage()
 vip = Dispatcher(bot, storage=storage)
 
-
-@vip.message_handler(content_types=types.ContentType.ANY)
-async def message_handler(msg: types.Message):
-	admins = await bot.get_chat_administrators(
-		chat_id=-1001941106669
-	)
-	admin_list = [6888643375 for admin in admins]
-	if msg.from_user.id not in admin_list:
-		if msg.text is not None:
-			if not re.search(r"Гарант: @geormor", msg.text):
-				message = await msg.reply(
-					text=f"{msg.from_user.get_mention()}, Ваше сообщение было удалено, потому что Вы не указали гаранта чата - Гарант: @geormor"
-				)
-				await msg.delete()
-				await asyncio.sleep(20)
-				await bot.delete_message(
-					chat_id=msg.chat.id,
-					message_id=message.message_id
-				)
-		else:
-			message = await msg.reply(
-				text=f"{msg.from_user.get_mention()}, Ваше сообщение было удалено, потому что Вы не указали гаранта чата - Гарант: @geormor"
-			)
-			await msg.delete()
-			await asyncio.sleep(20)
-			await bot.delete_message(
-				chat_id=msg.chat.id,
-				message_id=message.message_id
-			)
-
-
 if __name__ == "__main__":
 	executor.start_polling(vip)
