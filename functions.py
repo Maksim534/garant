@@ -11,15 +11,15 @@ class GiveBalance:
         self.login = user_id
         self.balance = None
 
-#def first_join(user_id, username):
-#	connection = sqlite3.connect(db)
-#	q = connection.cursor()
-#	q = q.execute('SELECT * FROM users WHERE user_id IS '+str(user_id))
-#	row = q.fetchone()
-#	if row is None:
-#		q.execute("INSERT INTO users (user_id, offers, balance, qiwi, ban, nick) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')"%(user_id,'0','0','Не указан','0', username))
-#		connection.commit()
-#	connection.close()
+def first_join(user_id, username):
+	connection = sqlite3.connect(db)
+	q = connection.cursor()
+	q = q.execute('SELECT * FROM users WHERE user_id IS '+str(user_id))
+ 	row = q.fetchone()
+	if row is None:
+		q.execute("INSERT INTO users (user_id, offers, balance, qiwi, ban, nick) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')"%(user_id,'0','0','Не указан','0', username))
+		connection.commit()
+	connection.close()
 
 def check_ban(user_id):
 	connection = sqlite3.connect(db)
