@@ -7,6 +7,8 @@ import json
 from random import randint
 import time
 
+db = 'db.db'
+
 class GiveBalance:
     def __init__(self, user_id):
         self.login = user_id
