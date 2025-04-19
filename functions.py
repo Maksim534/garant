@@ -1,3 +1,4 @@
+import os
 import sqlite3
 from config import token_qiwi, replenish, number_qiwi, db
 import random
