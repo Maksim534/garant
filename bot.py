@@ -10,7 +10,7 @@ vip = Dispatcher(bot, storage=storage)
 @vip.message_handler(content_types=types.ContentType.ANY)
 async def message_handler(msg: types.Message):
 	admins = await bot.get_chat_administrators(
-		chat_id=msg.chat.id
+		chat_id=-1001941106669
 	)
 	admin_list = [6888643375 for admin in admins]
 	if msg.from_user.id not in admin_list:
