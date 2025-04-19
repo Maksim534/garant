@@ -15,9 +15,9 @@ async def message_handler(msg: types.Message):
 	admin_list = [6888643375 for admin in admins]
 	if msg.from_user.id not in admin_list:
 		if msg.text is not None:
-			if not re.search(r"Гарант: @EWGarantBot", msg.text):
+			if not re.search(r"Гарант: @geormor", msg.text):
 				message = await msg.reply(
-					text=f"{msg.from_user.get_mention()}, Ваше сообщение было удалено, потому что Вы не указали гаранта чата - Гарант: @EWGarantBot"
+					text=f"{msg.from_user.get_mention()}, Ваше сообщение было удалено, потому что Вы не указали гаранта чата - Гарант: @geormor"
 				)
 				await msg.delete()
 				await asyncio.sleep(20)
@@ -27,7 +27,7 @@ async def message_handler(msg: types.Message):
 				)
 		else:
 			message = await msg.reply(
-				text=f"{msg.from_user.get_mention()}, Ваше сообщение было удалено, потому что Вы не указали гаранта чата - Гарант: @EWGarantBot"
+				text=f"{msg.from_user.get_mention()}, Ваше сообщение было удалено, потому что Вы не указали гаранта чата - Гарант: @geormor"
 			)
 			await msg.delete()
 			await asyncio.sleep(20)
